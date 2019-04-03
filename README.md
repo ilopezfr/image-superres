@@ -79,6 +79,7 @@ In this tutorial we use a model architecture with 2 components:
 We pass an image through the U-Net and the prediction we pass it though the Loss Network. Instead of taking the final output of the model, we take the activations of some layers in the middle. The idea is that those middle layer activations help identify something more abstract in an image (For example, for cat images, it can help identify and generate things like fur, ears, ...). Then it calculates the loss by comparing the output image (ŷ) and the content representation from the layer `relu3_3`
 
 This approach is able to produce impressive results like this reconstructed image (right):
+
 Mid-Res Image                                               |  Reconstructed Image
 :---------------------------------------------------------:|:------------------------------------------------------:
 <img src="img/cat-mid-res-ground-truth.png" width="495" /> | <img src="img/cat-predict-perceptual-loss.png" width="500"/>
