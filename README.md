@@ -78,9 +78,10 @@ In this tutorial we use a model architecture with 2 components:
 
 We pass an image through the U-Net and the prediction we pass it though the Loss Network. Instead of taking the final output of the model, we take the activations of some layers in the middle. The idea is that those middle layer activations help identify something more abstract in an image (For example, for cat images, it can help identify and generate things like fur, ears, ...). Then it calculates the loss by comparing the output image (ŷ) and the content representation from the layer `relu3_3`
 
-This approach is able to produce impressive results like this reconstructed image:
-
-<img src="img/cat-predict-perceptual-loss.png" width="500"/>
+This approach is able to produce impressive results like this reconstructed image (right):
+Mid-Res Image                                               |  Reconstructed Image
+:---------------------------------------------------------:|:------------------------------------------------------:
+<img src="img/cat-mid-res-ground-truth.png" width="495" /> | <img src="img/cat-predict-perceptual-loss.png" width="500"/>
 
 ## 4. GANs
 
@@ -97,6 +98,9 @@ In the second part of this tutorial, we take a U-Net and replace the per-pixel M
 
 <img src="img/gan-model-schema-fastai.png" width="500"/>
 
+
+
+
 ## 5. Variational Auto-Encoders (VAEs)
  TODO
 
@@ -104,6 +108,8 @@ In the second part of this tutorial, we take a U-Net and replace the per-pixel M
 
 ## References & Further Readings: 
 - [Deep Learning for Single Image Super-Resolution: A Brief Review](https://arxiv.org/pdf/1808.03344.pdf) - Mar 2019
+- [ESRGAN: Enhanced Super-Resolution Generative Adversarial Networks](https://arxiv.org/abs/1809.00219) - Sept 2018
+- [Residual Dense Network for Image Super-Resolution](https://arxiv.org/abs/1802.08797) - Mar 2018
 - [Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network](https://arxiv.org/pdf/1609.04802v5.pdf) May 2017
 - [From GAN to WGAN](https://lilianweng.github.io/lil-log/2017/08/20/from-GAN-to-WGAN.html) - Aug 2017
 - [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://arxiv.org/pdf/1505.04597.pdf) - May 2015
