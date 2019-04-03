@@ -89,7 +89,7 @@ This approach is able to produce impressive results like this reconstructed imag
 * The Generator outputs synthetic samples given a noise variable input z (z brings in potential output diversity). It is trained to capture the real data distribution so that its generative samples can be as real as possible. In other words, it can trick the discriminator to offer a high probability.
 The Discriminator essentially takes an input image and tries to guess if it's real or fake. The Generator's goal is to learn to fool the Discriminator to think that the generated images are real.  This interesting zero-sum game between two models motivates both to improve their functionalities.
 
-<img src="img/gan-schema.png" width="500"/>
+<img src="img/GAN-schema.png" width="500"/>
 
 [**Tutorial: Image Super Resolution - Part I: Method 2**](image_susperres_part1_fastai.ipynb) 
 
