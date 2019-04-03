@@ -2,6 +2,7 @@
 Image Super-Resolution Is the task is of generating a high-resolution output image from a low-resolution input by restoring the high-frequency details. 
 
 For example, we can take a low-res image from Hubble telescope (upper) and transform it into a high-resolution image (bottom).
+
 <img src="img/OE_51_1_011011_f008.png" width="300"/>
 
 Common resizing methods like those from OpenCV and Scipy libraries use different [interpolation](https://en.wikipedia.org/wiki/Interpolation) approaches to estimate the value of the intermediate pixels based on the values of nearby pixels. The problem of such techniques is that as they smooth the spaces in between in the image, some visual details like sharp edges are often not preserved. 
@@ -38,7 +39,7 @@ During training, the hidden layers will capture a dense (compressed) representat
 
 <sup> Auto-encoder schema.</sup>
 
-Tutorial: Image Super Resolution using Auto-Encoders. This tutorial builds from scratch a vanilla auto-encoder using Keras and TensorFlow backend to reconstruct a set of car images. It compares and testes different Loss functions including MSE, SSIM, PSNR and HFENN, as well as a combination of them. 
+[**Tutorial: Image Super Resolution using Auto-Encoders**](Image_Super_Resolution_using_Autoencoders.ipynb). In this tutorial we'll build from scratch a vanilla auto-encoder using Keras and TensorFlow backend and will use it to reconstruct a set of low-res car images. We'll compare and test different **Loss functions** including **MSE**, **SSIM**, **PSNR** and **HFENN**, as well as a combination of them. 
 
 ## 2. U-Net
 A U-Net is a convolutional neural network architecture that was originally developed for biomedical image segmentation. 
