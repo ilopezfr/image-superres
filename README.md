@@ -1,6 +1,14 @@
 # Image Super-Resolution
-Image Super-Resolution Is the task is of generating a high-resolution output image from a low-resolution input by restoring the high-frequency details. Common resizing methods like those from OpenCV and Scipy libraries use different interpolation approaches to estimate the value of the intermediate pixels based on the values of nearby pixels. The problem of such techniques is that as they smooth the spaces in between in the image, some visual details like sharp edges are often not preserved. 
+Image Super-Resolution Is the task is of generating a high-resolution output image from a low-resolution input by restoring the high-frequency details. 
+
+For example, we can take a low-res image from Hubble telescope (upper) and transform it into a high-resolution image (bottom).
+<img src="img/OE_51_1_011011_f008.png" width="300"/>
+
+Common resizing methods like those from OpenCV and Scipy libraries use different [interpolation](https://en.wikipedia.org/wiki/Interpolation) approaches to estimate the value of the intermediate pixels based on the values of nearby pixels. The problem of such techniques is that as they smooth the spaces in between in the image, some visual details like sharp edges are often not preserved. 
+
+
 We can use Convolutional Neural Networks as building blocks to construct models able to better predict the pixels in between. Later we'll see how using different objective functions lead to different results.
+
 Below is a list of the different approaches that this repo covers. This list is by no means exhaustive and I'll be adding new techniques and code as I continue my research in this domain.
 
 Approaches in this repo:
@@ -26,7 +34,7 @@ In order to train an auto-encoder to learn to reconstruct an image, we need to s
 
 During training, the hidden layers will capture a dense (compressed) representation of the input data.
 
-<img src="img/autoencoder_schema.jpg" width="500"/>
+<img src="img/autoencoder_schema.jpg" width="600"/>
 
 <sup> Auto-encoder schema.</sup>
 
@@ -37,7 +45,7 @@ A U-Net is a convolutional neural network architecture that was originally devel
 The architecture is essentially an Auto-Encoder with skip-like connections that connects feature maps from the encoder with layers in the decoder. That way, the neural networks learns to generalize in the compressed latent representation (located at the bottom of the “U” shape in the figure), but also recovers its latent generalizations to a spatial representation with the proper per-pixel semantic alignment in the right part of the U of the U-Net.
 U-Nets have been found to be very effective for tasks where the output is of similar size as the input and the output needs that amount of spatial resolution.
 
-<img src="img/u-net-architecture.png" width="600"/>
+<img src="img/u-net-architecture.png" width="700"/>
 
 <sup> source: https://arxiv.org/abs/1505.04597</sup>
 
@@ -54,7 +62,7 @@ To overcome this issue, instead of using per-pixel Loss function, we can use a f
 
 This was proposed by Justin et al in [Perceptual Losses for Real-Time Style Transfer and Super-Resolution](https://arxiv.org/abs/1603.08155) 
 
-<img src="img/perceptual-losses-schema.png" width="500"/>
+<img src="img/perceptual-losses-schema.png" width="700"/>
 
 <sup> source: https://arxiv.org/abs/1603.08155</sup>
 
