@@ -51,8 +51,10 @@ U-Nets have been found to be very effective for tasks where the output is of sim
 <sup> source: https://arxiv.org/abs/1505.04597</sup>
 
 
-**Tutorial: Image Super Resolution - Part I: Method 1** 
-In the first part of this tutorial covers how to train ...
+[**Tutorial: Image Super Resolution - Part I: Method 1**](image_susperres_part1_fastai.ipynb) 
+
+In the first part of this tutorial we review a vanilla method to perform image restoration using U-Nets architecture via fast.ai library and per-pixel MSE as loss function. It covers process of preparing the datasets, by "crapifying" original hi-res images so that we have two datasets with both good and low quality images to train our model. 
+
 
 ## 3. U-Net with Perceptual Loss Function:
 The image super-resolution task is inherently an ill-posed problem as for a single low-res image, there are many high-res images that could have generated it. Fine details of high-res images must be inferred from visually ambiguous low-resolution inputs. This ambiguity becomes more extreme as the super-res factor grows. For large factors (x4, x8) fine details of the high-res image may have little or no evidence in its low-res version.
