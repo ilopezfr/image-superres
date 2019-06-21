@@ -23,24 +23,24 @@ Approaches in this repo:
 ---
 
 ## 1. Auto-Encoders 
-An Auto-encoder is a type of Neural Network that tries to learn a representation of its input data, but in a space with much smaller dimensionality. This smaller representation is able to learn important features of the input data that can be used to reconstruct the data. 
-An auto encoder is principally composed of: an encoder, a decoder and a loss function.
-* both the encoder and decoder are usually Convolutional Neural Networks.
+An Auto-encoder is a type of Neural Network that tries to learn a representation of its input data, but in a space with much smaller dimensionality. This smaller representation is able to learn important features of the input data that can be used to later reconstruct the data. 
+An auto encoder is principally composed of 3 elements: an **encoder**, a **decoder** and a **loss function**.
+* Both the encoder and decoder are usually Convolutional Neural Networks.
 * The encoder tries to reduce the dimensionality of the input while the decoder tries to recover our image from this new space. 
-    * First, the encoder takes an input and passes it through its layers, gradually reducing the receptive field of the input. At the end of the encoder, the input is reduced to a liner feature representation.  
-    * This linear feature representation is fed to the decoder which tries to recover the image through upsampling it (increasing its receptive field) gradually until it reaches the end where the output has the same dimensions as the original input. 
-* This architecture is ideal for preserving the dimensionality. However, the linear compression of the input is a lossy process, meaning it losses information in the process.
-* The loss function is a way of describing a meaningful difference (or distance) between the input and output. This means that, when training, we'll want to minimize the difference between the input and output, so that the network learns to reconstruct the best possible output.
+    * First, the **encoder** takes an input and passes it through its layers, gradually reducing the receptive field of the input. At the end of the encoder, the input is reduced to a *linear feature representation*.  
+    * This linear feature representation is then fed to the **decoder** which tries to recover the image through *upsampling* it (increasing its receptive field) gradually until it reaches the end where the output has the same dimensions as the original input. 
+* This architecture is ideal for preserving the dimensionality. However, the linear compression of the input is a *lossy* process, meaning it losses information in the process.
+* The **loss function** is a way of describing a meaningful difference (or distance) between the input and output. During training, our goal is to minimize such difference so that the network will eventually lean to reconstruct the best possible output.
 
-In order to train an auto-encoder to learn to reconstruct an image, we need to show it pairs of low quality and high quality images so that it tries to find the patterns and important encoded visual features needed to be able to reconstruct it from the low quality version.  
+In order to teach an auto-encoder how to reconstruct an image, we need to show it pairs of low quality and high quality images. This way, then network will try to find the patterns and important encoded visual features needed to be able to reconstruct it from the low quality version.  
 
-During training, the hidden layers will capture a dense (compressed) representation of the input data.
+During training, the hidden layers will capture a **dense** (compressed) representation of the input data.
 
 <img src="img/autoencoder_schema.jpg" width="600"/>
 
 <sup> Auto-encoder schema.</sup>
 
-[**Tutorial: Image Super Resolution using Auto-Encoders**](Image_Super_Resolution_using_Autoencoders.ipynb). In this tutorial we'll build from scratch a vanilla auto-encoder using Keras and TensorFlow backend and will use it to reconstruct a set of low-res car images. We'll compare and test different **Loss functions** including **MSE**, **SSIM**, **PSNR** and **HFENN**, as well as a combination of them. 
+[**Tutorial: Image Super Resolution using Auto-Encoders**](Image_Super_Resolution_using_Autoencoders.ipynb). In this tutorial we'll build from scratch a vanilla auto-encoder using Keras and TensorFlow backend and will use it to reconstruct a set of low-res images of cars. We'll go over and compare the results using different **Loss functions**, including [**MSE**](https://en.wikipedia.org/wiki/Mean_squared_error), [**SSIM**](https://en.wikipedia.org/wiki/Structural_similarity), [**PSNR**](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) and **HFENN**, as well as a combination of them. 
 
 ## 2. U-Net
 A U-Net is a convolutional neural network architecture that was originally developed for biomedical image segmentation. 
