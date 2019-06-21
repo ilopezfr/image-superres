@@ -60,11 +60,11 @@ In the first part of this tutorial we review a vanilla method to perform image r
 ## 3. U-Net with Perceptual Loss Function:
 The image super-resolution task is inherently an ill-posed problem as for a single low-res image, there are many high-res images that could have generated it. Fine details of high-res images must be inferred from visually ambiguous low-resolution inputs. This ambiguity becomes more extreme as the super-res factor grows. For large factors (x4, x8) fine details of the high-res image may have little or no evidence in its low-res version.
 
-Common per-pixel loss functions like MSE only compare a pair of images based on their individual pixel values. This means that if two images, that are perceptually the same, but different from each other based on even one pixel, then based on per-pixel loss functions they will be very different from each other. Other metrics like PSNR and SSIM have been found to correlate poorly with human assessment of visual quality, as they rely only on low-level differences between pixels and operate under the assumption of additive Gaussian noise. 
+Common per-pixel loss functions like **MSE** only compare a pair of images based on their individual pixel values. This means that if two images, that are perceptually the same, but different from each other based on even one pixel, then based on per-pixel loss functions they will be very different from each other. Other metrics like **PSNR** and **SSIM** have been found to correlate poorly with human assessment of visual quality, as they rely only on low-level differences between pixels and operate under the assumption of additive Gaussian noise. 
 
-To overcome this issue, instead of using per-pixel Loss function, we can use a feature reconstruction loss to allow transfer of semantic knowledge from the pretrained loss network to the super-resolution network. 
+To overcome this issue, instead of using per-pixel Loss function, we can use a **feature reconstruction loss** to allow **transfer of semantic knowledge** from the pretrained loss network to the super-resolution network. 
 
-This was proposed by Justin et al in [Perceptual Losses for Real-Time Style Transfer and Super-Resolution](https://arxiv.org/abs/1603.08155) 
+This was proposed by Justin et al in [Perceptual Losses for Real-Time Style Transfer and Super-Resolution](https://arxiv.org/abs/1603.08155).
 
 <img src="img/perceptual-losses-schema.png" width="700"/>
 
@@ -76,7 +76,7 @@ In this tutorial we use a model architecture with 2 components:
 1. Image Transformation Network **`fW`**: an U-Net composed of an encoder and a decoder
 2. Loss Network **`Φ`** : a VGG-16 pre-trained ImageNet network 
 
-We pass an image through the U-Net and the prediction we pass it though the Loss Network. Instead of taking the final output of the model, we take the activations of some layers in the middle. The idea is that those middle layer activations help identify something more abstract in an image (For example, for cat images, it can help identify and generate things like fur, ears, ...). Then it calculates the loss by comparing the output image (ŷ) and the content representation from the layer `relu3_3`
+We pass an image through the U-Net and the prediction we pass it though the Loss Network. Instead of taking the final output of the model, we take the **activations of some layers in the middle**. The idea is that those middle layer activations help identify something more abstract in an image (For example, for cat images, it can help identify and generate things like fur, ears, ...). Then it calculates the loss by comparing the output image **`ŷ`** and the content representation from the layer `relu3_3`
 
 This approach is able to produce impressive results like this reconstructed image (right):
 
@@ -86,16 +86,18 @@ Mid-Res Image                                               |  Reconstructed Ima
 
 ## 4. GANs
 
-**Generative Adversarial Networks (GANs)** consists of two models:
-* The Discriminator estimates the probability of a given sample coming from the real dataset. It's optimized to classify which images are real and which fake. 
-* The Generator outputs synthetic samples given a noise variable input z (z brings in potential output diversity). It is trained to capture the real data distribution so that its generative samples can be as real as possible. In other words, it can trick the discriminator to offer a high probability.
-The Discriminator essentially takes an input image and tries to guess if it's real or fake. The Generator's goal is to learn to fool the Discriminator to think that the generated images are real.  This interesting zero-sum game between two models motivates both to improve their functionalities.
+**Generative Adversarial Networks (GANs)** consists of two models: a **Discriminator** and a **Generator**.
+* The **Discriminator** estimates the probability of a given sample coming from the real dataset. It's optimized to classify which images are real and which are fake. 
+* The **Generator** outputs synthetic samples given a noise variable input z (z brings in potential output diversity). It is trained to capture the **real data distribution** so that its generative samples can be as real as possible. In other words, it can trick the discriminator to offer a high probability.
+* The way it works is that the Discriminator takes an input image from the Generator and tries to guess if it's real or fake. The Generator's end goal is to learn to fool the Discriminator into thinking that the generated images are real.  This interesting zero-sum game between the two models motivates them both to improve their own functionalities.
 
 <img src="img/GAN-schema.png" width="500"/>
+<sup> GAN architecture </sup>
+
 
 [**Tutorial: Image Super Resolution - Part I: Method 2**](image_superres_part1_fastai.ipynb) 
 
-In the second part of this tutorial, we take a U-Net and replace the per-pixel MSE loss function with another model (the Discriminator or Critic). We train the Discriminator as a binary classifier model that takes the a pair of the synthetic image generated by the Generator and the real high-res one and tries to classify which image is which. We then fine-tune the Generator optimizing for "how good it is at fooling the Discriminator". In other words, can we generate images so that we can fool the Discriminator so that they are real/hi-res ?
+In the second part of this tutorial, we take a U-Net and replace the per-pixel MSE loss function with another model: the Discriminator (or Critic). We train the Discriminator as a binary classifier model that takes the a pair of *a synthetic image generated by the Generator* and *a real high-res one*, and then tries to classify which image is which. We then fine-tune the Generator optimizing for "how good it is at fooling the Discriminator to think that the fake images are real". 
 
 <img src="img/gan-model-schema-fastai.png" width="500"/>
 
