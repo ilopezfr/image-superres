@@ -112,8 +112,11 @@ In the second part of this tutorial, we take a U-Net and replace the per-pixel M
 ## References & Further Readings: 
 - [Deep Learning for Single Image Super-Resolution: A Brief Review](https://arxiv.org/pdf/1808.03344.pdf) - Mar 2019
 - [ESRGAN: Enhanced Super-Resolution Generative Adversarial Networks](https://arxiv.org/abs/1809.00219) - Sept 2018
+- [Learned Perceptual Image Patch Similarity (LPIPS) metric (repo)](https://github.com/richzhang/PerceptualSimilarity) - 2018
 - [Residual Dense Network for Image Super-Resolution](https://arxiv.org/abs/1802.08797) - Mar 2018
 - [Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network](https://arxiv.org/pdf/1609.04802v5.pdf) May 2017
+- [SRGAN Tensorflow (repo)](https://github.com/brade31919/SRGAN-tensorflow) - 2017
 - [From GAN to WGAN](https://lilianweng.github.io/lil-log/2017/08/20/from-GAN-to-WGAN.html) - Aug 2017
 - [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://arxiv.org/pdf/1505.04597.pdf) - May 2015
 - [Fast.ai Vision Learner](https://docs.fast.ai/vision.learner.html)
+- [TECOGAN Video Super-resolution (repo)](https://github.com/thunil/TecoGAN) - April 2019
