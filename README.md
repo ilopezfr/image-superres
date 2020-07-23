@@ -40,7 +40,7 @@ During training, the hidden layers will capture a **dense** (compressed) represe
 
 <sup> Auto-encoder schema.</sup>
 
-[**Tutorial: Image Super Resolution using Auto-Encoders**](Image_Super_Resolution_using_Autoencoders.ipynb). In this tutorial we'll build from scratch a vanilla auto-encoder using Keras and TensorFlow backend and will use it to reconstruct a set of low-res images of cars. We'll go over and compare the results using different **Loss functions**, including [**MSE**](https://en.wikipedia.org/wiki/Mean_squared_error), [**SSIM**](https://en.wikipedia.org/wiki/Structural_similarity), [**PSNR**](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) and **HFENN**, as well as a combination of them. 
+[**Tutorial: Image Super Resolution using Auto-Encoders**](https://github.com/ilopezfr/image-superres/blob/master/Image_Super_Resolution_using_Autoencoders.ipynb). In this tutorial we'll build from scratch a vanilla auto-encoder using Keras and TensorFlow backend and will use it to reconstruct a set of low-res images of cars. We'll go over and compare the results using different **Loss functions**, including [**MSE**](https://en.wikipedia.org/wiki/Mean_squared_error), [**SSIM**](https://en.wikipedia.org/wiki/Structural_similarity), [**PSNR**](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) and **HFENN**, as well as a combination of them. 
 
 ## 2. U-Net
 A U-Net is a convolutional neural network architecture that was originally developed for biomedical image segmentation. 
