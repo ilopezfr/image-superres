@@ -52,7 +52,7 @@ U-Nets have been found to be very effective for tasks where the output is of sim
 <sup> source: https://arxiv.org/abs/1505.04597</sup>
 
 
-[**Tutorial: Image Super Resolution - Part I: Method 1**](image_susperres_part1_fastai.ipynb) 
+[**Tutorial: Image Super Resolution - Part I: Method 1**](image_superres_part1_fastai.ipynb) 
 
 In the first part of this tutorial we review a vanilla method to perform image restoration using U-Nets architecture via fast.ai library and per-pixel MSE as loss function. It covers process of preparing the datasets, by "crapifying" original hi-res images so that we have two datasets with both good and low quality images to train our model. 
 
